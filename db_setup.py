@@ -2,11 +2,11 @@ import pymysql
 import dbconfig
 
 connection = pymysql.connect(host='localhost', user=dbconfig.db_user,
-			                 passwd=dbconfig.db_password)
+			     passwd=dbconfig.db_password)
 
 try:
     with connection.cursor() as cursor:
-		sql = "CREATE DATABASE IF NOT EXISTS crimemap"
+	sql = "CREATE DATABASE IF NOT EXISTS crimemap"
         cursor.execute(sql)
         sql = """CREATE TABLE IF NOT EXISTS crimemap.crimes (
         		 id int NOT NULL AUTO_INCREMENT,
@@ -19,6 +19,6 @@ try:
         		 PRIMARY KEY (id)
         		 )"""
         cursor.execute(sql);
-	connection.commit()
+    connection.commit()
 finally:
-	connection.close()
+    connection.close()
