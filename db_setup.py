@@ -2,10 +2,10 @@ import pymysql
 import dbconfig
 
 connection = pymysql.connect(host='localhost', user=dbconfig.db_user,
-							 passwd=dbconfig.db_password)
+			                 passwd=dbconfig.db_password)
 
 try:
-	with connection.cursor() as cursor:
+    with connection.cursor() as cursor:
 		sql = "CREATE DATABASE IF NOT EXISTS crimemap"
         cursor.execute(sql)
         sql = """CREATE TABLE IF NOT EXISTS crimemap.crimes (
